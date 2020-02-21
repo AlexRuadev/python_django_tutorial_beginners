@@ -1,6 +1,7 @@
 ##### https://docs.djangoproject.com/en/3.0/intro/tutorial01/
+    
 
-## Create virtual environmennt
+## Create virtual environmennt or connect to existing environment
   python -m venv env
   cd env/Scripts
   source activate

@@ -1,8 +1,16 @@
 <!-- going to question, and get the question text -->
 <h1>{{ question.question_text }}</h1>
-<ul>
-  <!--  for loop -->
+<!-- If there are any errors message, show them  -->
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+<!-- the action is the redirection, the form submit triggers the polls:vote url  -->
+<form action="{% url 'polls:vote' question.id %}" method="post">
+  <!--  cross site request forgerie is a security token -->
+  {% csrf_token %}
+  <!-- the for loop go over our questions choices -->
   {% for choice in question.choice_set.all %}
-    <li>{{ choice.choice_text }}</li>
+  <!--  forloop.counter indicates how many times the for tag has gone through its loop -->
+  <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+  <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
   {% endfor %}
-</ul>
+  <input type="submit" value="Vote">
+</form>
