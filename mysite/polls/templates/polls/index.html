@@ -1,0 +1,16 @@
+<!-- if there are any question, create a ul -->
+{% if latest_question_list %}
+<ul>
+  <!-- for loop, for any question, show them in a link -->
+  {% for question in latest_question_list %}
+  <li>
+    <!-- meaning: for the url, use detail, and as an argument, pass the question.id -->
+    <a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a>
+  </li>
+  <!-- end of for loop -->
+  {% endfor %}
+</ul>
+<!-- otherwise, says there is no polls available -->
+{% else %}
+<p>No polls are available.</p>
+{% endif %}
