@@ -1,10 +1,10 @@
 <h1>{{ question.question_text }}</h1>
 
 <ul>
-  {% for choice in question.choice_set.all %}
-  <!-- get the choice_text, get the count of votes, and add an s if there is more than one -->
-  <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
-  {% endfor %}
+	{% for choice in question.choice_set.all %}
+	<!-- get the choice_text, get the count of votes, and add an s if there is more than one -->
+	<li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+	{% endfor %}
 </ul>
 <!-- the link will take us to the detail view of that particular question -->
 <a href="{% url 'polls:detail' question.id %}">Vote again?</a>

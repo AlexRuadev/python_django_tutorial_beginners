@@ -35,3 +35,9 @@
 
 ## after you have made those migration, you want to commit them to your database
   python manage.py migrate
+
+## test the polls app using the tests.py file
+python manage.py test polls
+
+
+
